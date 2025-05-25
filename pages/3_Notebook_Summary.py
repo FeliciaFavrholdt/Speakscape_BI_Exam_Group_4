@@ -38,14 +38,6 @@ notebooks = {
         "link": "https://github.com/your-repo/speakscape/blob/main/notebooks/07_sentence_structure_analysis.ipynb",
         "summary": "Analyzed sentence complexity, rhetorical devices, and question usage in transcripts. Linked to engagement metrics."
     },
-    "08 - Linguistic Feature Analysis": {
-        "link": "https://github.com/your-repo/speakscape/blob/main/notebooks/08_linguistic_feature_analysis.ipynb",
-        "summary": "Analyzed deeper rhetorical and stylistic features across TED Talks, including emphasis patterns and sentence diversity."
-    },
-    "09 - Pronoun Usage Analysis": {
-        "link": "https://github.com/your-repo/speakscape/blob/main/notebooks/09_pronoun_usage_analysis.ipynb",
-        "summary": "Investigated personal vs. impersonal language trends and how pronoun choices affect audience connection and clarity."
-    },
 }
 
 for title, info in notebooks.items():
