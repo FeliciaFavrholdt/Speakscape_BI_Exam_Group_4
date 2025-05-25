@@ -11,6 +11,10 @@ By analyzing transcripts and correlating linguistic features with audience engag
 It combines these insights to create a complete picture of presentation effectiveness, contributing to the final SpeakScape recommendation system that helps users improve their presentation skills based on proven patterns from successful TED Talks.
 """)
 
+st.image("images/image_1.jpg", caption="SpeakScape – Inspired by TED Talks", use_column_width=True)
+
+st.image("images/image_2.jpg", caption="SpeakScape – Inspired by TED Talks", use_column_width=True)
+
 st.markdown("""
 ### TED Talk Analysis  
 - **Project Overview** – Learn the motivation, research questions, and hypotheses behind SpeakScape  
