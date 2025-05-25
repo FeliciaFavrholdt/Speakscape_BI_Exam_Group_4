@@ -1,5 +1,4 @@
-# SpeakScape 
-# SpeakScape 
+# SpeakScape
 
 SpeakScape is a data-driven platform for analyzing the linguistic patterns of TED Talks and providing actionable feedback to presenters. This README provides instructions for setting up the project environment.
 

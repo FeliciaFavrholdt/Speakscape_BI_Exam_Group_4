@@ -3,15 +3,16 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 import plotly.express as px
-from io import StringIO
+from sklearn.cluster import KMeans
+from sklearn.preprocessing import StandardScaler
 
 # ---------------- Page Setup ----------------
 st.set_page_config(page_title="SpeakScape TED Talk Dashboard", layout="wide")
 st.title("TED Talk Dashboard")
 
 st.markdown("""
-Use this dashboard to explore and analyze TED Talks based on year, speaker, duration, tags, and keywords.  
-Apply filters independently or in combination to explore patterns and presentation trends.
+Explore TED Talks by year, speaker, duration, tags, and keywords.  
+This dashboard includes trend detection, tag content search, and K-Means clustering with adjustable cluster count.
 """)
 
 # ---------------- Load and Cache Data ----------------
@@ -27,24 +28,24 @@ df_main = load_data()
 # ---------------- Sidebar Filters ----------------
 st.sidebar.header("Filter TED Talks")
 
-# Clear filters button workaround
+# Clear filters
 if st.sidebar.button("🔁 Clear All Filters"):
     st.session_state.clear()
 
 years = sorted(df_main['year'].dropna().unique())
 tags_list = sorted({tag for tag_list in df_main['tags'] for tag in tag_list})
 speakers = sorted(df_main['speaker'].dropna().unique())
+min_duration, max_duration = int(df_main['duration'].min()), int(df_main['duration'].max())
 
 selected_years = st.sidebar.multiselect("Select Year(s)", years, key="year_filter")
 selected_tag = st.sidebar.selectbox("Select a Tag", ["All"] + tags_list, key="tag_filter")
+tag_search = st.sidebar.text_input("Search Tags by Keyword", key="tag_search")
 selected_speakers = st.sidebar.multiselect("Select Speaker(s)", speakers, key="speaker_filter")
-
-min_duration, max_duration = int(df_main['duration'].min()), int(df_main['duration'].max())
 duration_range = st.sidebar.slider("Select Duration Range (seconds)", min_duration, max_duration, (min_duration, max_duration), key="duration_filter")
-
 keyword = st.sidebar.text_input("Search Title Keywords", key="keyword_filter")
+num_clusters = st.sidebar.slider("K-Means: Number of Clusters", 2, 10, 3)
 
-# ---------------- Filtering Logic ----------------
+# ---------------- Apply Filters ----------------
 filtered_df = df_main.copy()
 
 if selected_years:
@@ -52,6 +53,9 @@ if selected_years:
 
 if selected_tag != "All":
     filtered_df = filtered_df[filtered_df['tags'].apply(lambda tags: selected_tag in tags)]
+
+if tag_search:
+    filtered_df = filtered_df[filtered_df['tags'].apply(lambda tags: any(tag_search.lower() in tag.lower() for tag in tags))]
 
 if selected_speakers:
     filtered_df = filtered_df[filtered_df['speaker'].isin(selected_speakers)]
@@ -63,10 +67,9 @@ filtered_df = filtered_df[filtered_df['duration'].between(*duration_range)]
 
 # ---------------- Display Filtered Data ----------------
 st.subheader("Filtered Dataset Preview")
-
 st.dataframe(filtered_df[['title', 'speaker', 'views', 'year', 'duration', 'tags']].head(20))
 
-# ---------------- Download Button ----------------
+# ---------------- Download Filtered Data ----------------
 csv = filtered_df.to_csv(index=False)
 st.download_button(
     label="📥 Download Filtered Data as CSV",
@@ -81,12 +84,13 @@ if not filtered_df.empty:
     top_tags = filtered_df['tags'].explode().value_counts().head(20)
     st.bar_chart(top_tags)
 
-    # Average Views by Year
-    st.subheader("Average Views by Year")
-    views_by_year = filtered_df.groupby("year")["views"].mean()
-    st.line_chart(views_by_year)
+    # Views trend
+    st.subheader("Average Views by Year (Trend Detection)")
+    trend = filtered_df.groupby("year")["views"].mean().reset_index()
+    fig_trend = px.line(trend, x="year", y="views", markers=True, title="Trend: Average Views Over Time")
+    st.plotly_chart(fig_trend, use_container_width=True)
 
-    # Duration Distribution
+    # Duration distribution
     st.subheader("Talk Duration Distribution")
     fig1, ax1 = plt.subplots()
     sns.histplot(filtered_df['duration'], bins=30, kde=True, ax=ax1)
@@ -94,7 +98,7 @@ if not filtered_df.empty:
     ax1.set_ylabel("Number of Talks")
     st.pyplot(fig1)
 
-    # Views Distribution
+    # Views distribution
     st.subheader("Views Distribution (Log Scale)")
     fig2, ax2 = plt.subplots()
     sns.histplot(filtered_df['views'], bins=50, log_scale=True, ax=ax2)
@@ -102,12 +106,12 @@ if not filtered_df.empty:
     ax2.set_ylabel("Frequency")
     st.pyplot(fig2)
 
-    # Talks per Year
+    # Talks per year
     st.subheader("Number of Talks Per Year")
     talks_per_year = filtered_df['year'].value_counts().sort_index()
     st.bar_chart(talks_per_year)
 
-    # 2D Scatter Plot
+    # 2D scatter plot
     st.subheader("Scatter Plot: Views vs Duration")
     fig_scatter = px.scatter(
         filtered_df,
@@ -119,31 +123,26 @@ if not filtered_df.empty:
     )
     st.plotly_chart(fig_scatter, use_container_width=True)
 
-    # 3D Plot: Top Tags over Time
-    st.subheader("3D Plot: Tag Popularity Over Time (Top Tags)")
-    top_tags_list = filtered_df['tags'].explode().value_counts().head(5).index.tolist()
-    df_3d = (
-        filtered_df.explode("tags")
-        .query("tags in @top_tags_list")
-        .groupby(["year", "tags"])
-        .size()
-        .reset_index(name="count")
-    )
+    # K-Means Clustering
+    st.subheader(f"K-Means Clustering: Views vs Duration ({num_clusters} Clusters)")
+    clustering_data = filtered_df[['views', 'duration']].dropna()
+    scaler = StandardScaler()
+    clustering_scaled = scaler.fit_transform(clustering_data)
 
-    if not df_3d.empty:
-        fig_3d_tags = px.scatter_3d(
-            df_3d,
-            x="year",
-            y="tags",
-            z="count",
-            color="tags",
-            size="count",
-            title="Top Tags Over Years (3D)",
-            height=600
-        )
-        st.plotly_chart(fig_3d_tags, use_container_width=True)
-    else:
-        st.info("Not enough data for a 3D tag breakdown.")
+    kmeans = KMeans(n_clusters=num_clusters, random_state=42)
+    clustering_data['cluster'] = kmeans.fit_predict(clustering_scaled)
+
+    fig_cluster = px.scatter(
+        clustering_data,
+        x='duration',
+        y='views',
+        color='cluster',
+        title="K-Means Clustering",
+        labels={"cluster": "Cluster"},
+        opacity=0.7
+    )
+    st.plotly_chart(fig_cluster, use_container_width=True)
+
 else:
     st.warning("No results match your filters. Try adjusting the filters above.")
 
