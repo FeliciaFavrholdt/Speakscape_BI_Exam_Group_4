@@ -5,8 +5,9 @@ st.set_page_config(page_title="SpeakScape", layout="wide")
 st.title("Welcome to SpeakScape")
 
 st.markdown("""
-**SpeakScape** is a business intelligence application that provides data-driven feedback on presentation content, inspired by the language patterns of TED Talks. By analyzing transcripts and correlating linguistic features with audience engagement metrics, SpeakScape helps presenters improve clarity, emotional impact, and relevance.
+**SpeakScape** is a business intelligence application that provides data-driven feedback on presentation content, inspired by the language patterns of TED Talks. 
 
+By analyzing transcripts and correlating linguistic features with audience engagement metrics, SpeakScape helps presenters improve clarity, emotional impact, and relevance.
 It combines these insights to create a complete picture of presentation effectiveness, contributing to the final SpeakScape recommendation system that helps users improve their presentation skills based on proven patterns from successful TED Talks.
 """)
 
