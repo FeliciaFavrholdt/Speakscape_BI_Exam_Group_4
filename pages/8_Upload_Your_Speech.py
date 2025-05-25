@@ -161,14 +161,14 @@ if user_text and run_analysis:
         ]
     })
 
-    csv_path = "speech_feedback_summary.csv"
+    csv_path = "files/csv/speech_feedback_summary.csv"
     feedback_df.to_csv(csv_path, index=False)
 
     with open(csv_path, "rb") as f:
         st.download_button("Download Feedback as CSV", f, file_name=csv_path, mime="text/csv")
 
     # Generate PDF
-    pdf_path = "speech_feedback_summary.pdf"
+    pdf_path = "files/pdf/speech_feedback_summary.pdf"
 
     class PDF(FPDF):
         def header(self):
