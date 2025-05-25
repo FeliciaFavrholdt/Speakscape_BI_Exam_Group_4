@@ -1,73 +1,97 @@
-
 import streamlit as st
 
 st.set_page_config(page_title="SpeakScape", layout="wide")
 
 st.title("Scenarios for SpeakScape Usability")
+
 st.markdown("""
-This page evaluates the usability of SpeakScape through a real-world scenario.
-The scenario demonstrates how a user can effectively utilize the app to improve their presentation script based on TED Talk benchmarks.
-The scenarios below illustrate how different users can leverage SpeakScape to enhance their speeches, presentations, or performances.
-The scenarios are based on user feedback and experiences, showcasing the practical applications of SpeakScape in various contexts.
+This page evaluates the usability of SpeakScape through real-world scenarios.  
+Each scenario illustrates how different users leverage SpeakScape to enhance their speeches, presentations, or performances.
 """)
 
+# ---------- Light Blue Card Style ----------
+card_style = """
+<style>
+.card {
+    background-color: #f0f8ff; /* Light blue */
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    margin-bottom: 2rem;
+    border: 1px solid #dbe9f4;
+}
+.card h4 {
+    margin-top: 0;
+    color: #003366;
+}
+</style>
+"""
+st.markdown(card_style, unsafe_allow_html=True)
 
-# ---------- Scenarios ----------
-st.subheader("Scenario: University Lecturer Preparing a Keynote Speech")
-st.markdown("""
-**User Role:** University Lecturer  
-**Use Case:** Preparing a keynote speech for an education summit
+# ---------- Cards in Columns ----------
+col1, col2 = st.columns(2)
 
-**Steps Taken:**  
-1. Uploaded the draft script to SpeakScape  
-2. Feedback indicated that sentence length exceeded TED averages by 25% and rhetorical questions were underused  
-3. Revised the text by shortening complex sentences and adding thoughtful questions to better engage the audience
-""")
-st.markdown("""
-> “This process helped me reframe my message to be more accessible to a wider audience.” – User Feedback
-""")
+with col1:
+    st.markdown("""
+    <div class="card">
+        <h4>University Lecturer – Keynote Speech</h4>
+        <p><strong>User Role:</strong> University Lecturer<br>
+        <strong>Use Case:</strong> Preparing a keynote speech for an education summit</p>
+        <ul>
+            <li>Uploaded the draft script to SpeakScape</li>
+            <li>Feedback showed sentence length exceeded TED averages by 25%</li>
+            <li>Revised sentences and added rhetorical questions for engagement</li>
+        </ul>
+        <p><em>“This process helped me reframe my message to be more accessible to a wider audience.”</em></p>
+    </div>
+    """, unsafe_allow_html=True)
 
-st.subheader("Scenario: Student Presenting Research Findings")
-st.markdown("""
-**User Role:** University Student  
-**Use Case:** Presenting research findings at a conference  
+with col2:
+    st.markdown("""
+    <div class="card">
+        <h4>Student – Research Presentation</h4>
+        <p><strong>User Role:</strong> University Student<br>
+        <strong>Use Case:</strong> Presenting research findings at a conference</p>
+        <ul>
+            <li>Uploaded research presentation to SpeakScape</li>
+            <li>Identified high passive voice and low rhetorical question usage</li>
+            <li>Switched to active voice and added questions for clarity</li>
+        </ul>
+        <p><em>“The feedback helped me make my research more engaging and easier to understand for the audience.”</em></p>
+    </div>
+    """, unsafe_allow_html=True)
 
-**Steps Taken:**  
-1. Uploaded the research presentation script to SpeakScape  
-2. Received feedback indicating a high passive voice percentage and low rhetorical question usage  
-3. Revised the script by converting passive sentences to active voice and incorporating rhetorical questions to enhance engagement
-""")
-st.markdown("""
-> “The feedback helped me make my research more engaging and easier to understand for the audience.” – User Feedback
-""")
+col3, col4 = st.columns(2)
 
-st.subheader("Scenario: Comedian Preparing a Stand-Up Routine")
-st.markdown("""
-**User Role:** Stand-Up Comedian  
-**Use Case:** Preparing a stand-up routine for a comedy club  
+with col3:
+    st.markdown("""
+    <div class="card">
+        <h4>Comedian – Stand-Up Routine</h4>
+        <p><strong>User Role:</strong> Stand-Up Comedian<br>
+        <strong>Use Case:</strong> Preparing a stand-up routine for a comedy club</p>
+        <ul>
+            <li>Uploaded draft to SpeakScape</li>
+            <li>Feedback flagged long sentences impacting comedic timing</li>
+            <li>Shortened sentences and added punchlines for impact</li>
+        </ul>
+        <p><em>“The feedback helped me tighten my routine and deliver jokes more effectively.”</em></p>
+    </div>
+    """, unsafe_allow_html=True)
 
-**Steps Taken:**  
-1. Uploaded the draft routine to SpeakScape  
-2. Feedback indicated that the average sentence length was too long for comedic timing  
-3. Revised the routine by shortening sentences and adding more punchlines to improve comedic impact
-""")
-st.markdown("""
-> “The feedback helped me tighten my routine and deliver jokes more effectively.” – User Feedback
-""")
-
-st.subheader("Scenario: User Preparing a Business Presentation")
-st.markdown("""
-**User Role:** Business Professional  
-**Use Case:** Preparing a business presentation for a client meeting  
-
-**Steps Taken:**  
-1. Added text directly to SpeakScape via the text input box  
-2. Received feedback indicating a high passive voice percentage and low rhetorical question usage  
-3. Revised the script by converting passive sentences to active voice and incorporating rhetorical questions to enhance engagement
-""")
-st.markdown("""
-> “The feedback helped me make my presentation more engaging and persuasive for the client.” – User Feedback
-""")
+with col4:
+    st.markdown("""
+    <div class="card">
+        <h4>Business Professional – Client Presentation</h4>
+        <p><strong>User Role:</strong> Business Professional<br>
+        <strong>Use Case:</strong> Presenting a business proposal in a client meeting</p>
+        <ul>
+            <li>Pasted speech directly into SpeakScape</li>
+            <li>Feedback showed excessive passive voice and low rhetorical usage</li>
+            <li>Refined script with active phrasing and engagement questions</li>
+        </ul>
+        <p><em>“The feedback helped me make my presentation more persuasive and client-focused.”</em></p>
+    </div>
+    """, unsafe_allow_html=True)
 
 st.markdown("---")
-st.caption("Built with ❤️ using Streamlit | Powered by TED Talks | Data from Kaggle")
+st.caption("Built with ❤️ using Streamlit | Powered by TED Talks | Data from Kaggle | Stock images from Unsplash")

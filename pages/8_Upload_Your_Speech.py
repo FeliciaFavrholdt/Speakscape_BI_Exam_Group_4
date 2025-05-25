@@ -201,6 +201,6 @@ if user_text and run_analysis:
 
     with open(pdf_path, "rb") as f:
         st.download_button("Download Feedback as PDF", f, file_name=pdf_path, mime="application/pdf")
-
+        
 st.markdown("---")
-st.caption("Built with ❤️ using Streamlit | Powered by TED Talks | Data from Kaggle")
+st.caption("Built with ❤️ using Streamlit | Powered by TED Talks | Data from Kaggle | Stock images from Unsplash")

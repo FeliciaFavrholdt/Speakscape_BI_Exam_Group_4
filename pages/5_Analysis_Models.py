@@ -11,4 +11,4 @@ insert all the models used in the analysis here, with a brief description of eac
 st.markdown("Data source: TED Talk transcripts processed and analyzed by SpeakScape.")
 
 st.markdown("---")
-st.caption("Built with ❤️ using Streamlit | Powered by TED Talks | Data from Kaggle")
+st.caption("Built with ❤️ using Streamlit | Powered by TED Talks | Data from Kaggle | Stock images from Unsplash")

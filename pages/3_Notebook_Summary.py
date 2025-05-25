@@ -55,4 +55,4 @@ for title, info in notebooks.items():
 
 
 st.markdown("---")
-st.caption("Built with ❤️ using Streamlit | Powered by TED Talks | Data from Kaggle")
+st.caption("Built with ❤️ using Streamlit | Powered by TED Talks | Data from Kaggle | Stock images from Unsplash")

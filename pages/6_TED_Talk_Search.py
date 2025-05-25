@@ -73,4 +73,4 @@ st.bar_chart(talks_per_year)
 st.markdown("Data source: TED Talk transcripts processed and analyzed by SpeakScape.")
 
 st.markdown("---")
-st.caption("Built with ❤️ using Streamlit | Powered by TED Talks | Data from Kaggle")
+st.caption("Built with ❤️ using Streamlit | Powered by TED Talks | Data from Kaggle | Stock images from Unsplash")

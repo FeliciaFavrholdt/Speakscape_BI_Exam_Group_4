@@ -43,9 +43,5 @@ CPH Business Academy – Lyngby
 Business Intelligence – Exam Project 2025
 """)
 
-
 st.markdown("---")
-st.markdown("Data source: Stock images downloaded via https://unsplash.com/")
-
-st.markdown("---")
-st.caption("Built with ❤️ using Streamlit | Powered by TED Talks | Data from Kaggle")
+st.caption("Built with ❤️ using Streamlit | Powered by TED Talks | Data from Kaggle | Stock images from Unsplash")

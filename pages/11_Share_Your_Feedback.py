@@ -2,7 +2,7 @@ import streamlit as st
 
 st.set_page_config(page_title="SpeakScape", layout="wide")
 
-st.title("Share Your Feedback")
+st.title("Thanks for giving us feedback!")
 st.markdown("""
 This page allows you to share your feedback on the usability of SpeakScape based on real-world scenarios.
 We appreciate your insights and experiences, which will help us improve the app for future users.
@@ -11,7 +11,7 @@ We appreciate your insights and experiences, which will help us improve the app 
 st.image("images/image_3.jpg", caption="Stock Image 3", use_container_width=True)
 
 # ---------- Feedback Section ----------
-st.subheader("Thanks for giving us feedback!")
+st.subheader("Fill out the feedback form below:")
 
 st.markdown("""
 We would love to hear your thoughts!  
@@ -49,9 +49,5 @@ if st.session_state.feedback_entries:
         st.markdown(f"> {entry['comment']}")
         st.markdown("---")
 
-
 st.markdown("---")
-st.markdown("Data source: Stock images downloaded via https://unsplash.com/")
-
-st.markdown("---")
-st.caption("Built with ❤️ using Streamlit | Powered by TED Talks | Data from Kaggle")
+st.caption("Built with ❤️ using Streamlit | Powered by TED Talks | Data from Kaggle | Stock images from Unsplash")
