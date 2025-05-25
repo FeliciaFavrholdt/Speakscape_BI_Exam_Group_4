@@ -29,7 +29,7 @@ st.markdown("""
 - **Analysis Models** – Understand the models used to analyze TED Talks and their impact on audience engagement
 
 ### SpeakScape App  
-- **TED Talk Search** – Find TED Talks based on topic, speaker, or tag  
+- **Search TED Talks** – Find TED Talks based on topic, speaker, or tag  
 - **Upload Your Speech** – Get personalized feedback on your uploaded script  
 - **Key Metrics** – Understand the key metrics used to evaluate presentations 
 - **SpeakScape Assistant** – Ask questions and get real-time feedback on your presentation script  
