@@ -15,7 +15,7 @@ st.markdown("""
 ### TED Talk Analysis  
 - **Project Overview** – Learn the motivation, research questions, and hypotheses behind SpeakScape  
 - **Technical Overview** – See the tools, libraries, and system architecture used  
-- **SpeakScape Notebook Summary** – Explore what each notebook stage revealed  
+- **Notebook Summary** – Explore what each notebook stage revealed  
 - **Linguistic Visualisations** – View how sentence complexity, rhetorical devices, and tone evolve over time
 - **Analysis Models** – Understand the models used to analyze TED Talks and their impact on audience engagement
 
