@@ -1,0 +1,17 @@
+{
+    "description": "Defined problem statement, research questions, BI sprint plan, and initial folder setup.",
+    "team_members": [
+        "Alberte Mary Wahlstr\u00f8m Vallentin",
+        "Felicia Favrholdt",
+        "Fatima Majid Shamcizadh"
+    ],
+    "sprints_defined": 4,
+    "folders_created": [
+        "data",
+        "models",
+        "plots",
+        "reports"
+    ],
+    "notebook": "01_problem_statement_and_setup.ipynb",
+    "timestamp": "2025-05-25_23-38-59"
+}
