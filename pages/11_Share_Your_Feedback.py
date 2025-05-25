@@ -8,6 +8,8 @@ This page allows you to share your feedback on the usability of SpeakScape based
 We appreciate your insights and experiences, which will help us improve the app for future users.
 """)
 
+st.image("images/image_3.jpg", caption="Stock Image 3", use_container_width=True)
+
 # ---------- Feedback Section ----------
 st.subheader("Thanks for giving us feedback!")
 
@@ -46,6 +48,10 @@ if st.session_state.feedback_entries:
         st.markdown(f"**Feedback #{i}** – ⭐️ {entry['rating']}/5")
         st.markdown(f"> {entry['comment']}")
         st.markdown("---")
+
+
+st.markdown("---")
+st.markdown("Data source: Stock images downloaded via https://unsplash.com/")
 
 st.markdown("---")
 st.caption("Built with ❤️ using Streamlit | Powered by TED Talks | Data from Kaggle")

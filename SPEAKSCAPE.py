@@ -40,7 +40,7 @@ st.markdown("""
 ### Created By:
 Group 4 – Alberte, Felicia & Fatima  
 CPH Business Academy – Lyngby  
-Business Intelligence Exam Project 2025
+Business Intelligence – Exam Project 2025
 """)
 
 
