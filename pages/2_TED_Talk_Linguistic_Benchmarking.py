@@ -76,5 +76,8 @@ plot_metric_over_time(filtered_df, "rhetorical_question_count", "Rhetorical Ques
 if "imperative_percentage" in filtered_df.columns:
     plot_metric_over_time(filtered_df, "imperative_percentage", "Imperative Usage (%)")
 
-st.markdown("---")
 st.markdown("Data source: TED Talk transcripts processed and analyzed by SpeakScape.")
+
+
+st.markdown("---")
+st.caption("Built with ❤️ using Streamlit | Powered by TED Talks | Data from Kaggle")

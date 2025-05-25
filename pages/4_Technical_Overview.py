@@ -61,3 +61,7 @@ st.markdown("""
 - **Speech Upload Tool** – Accepts user input via file or text area and performs structural and sentiment analysis  
 - **Feedback Engine** – Generates real-time recommendations based on statistical alignment with TED performance data
 """)
+
+
+st.markdown("---")
+st.caption("Built with ❤️ using Streamlit | Powered by TED Talks | Data from Kaggle")

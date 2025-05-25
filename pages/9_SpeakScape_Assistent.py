@@ -44,3 +44,6 @@ if user_input:
 for message in st.session_state.chat_history:
     with st.chat_message(message["role"]):
         st.markdown(message["content"])
+
+st.markdown("---")
+st.caption("Built with ❤️ using Streamlit | Powered by TED Talks | Data from Kaggle")

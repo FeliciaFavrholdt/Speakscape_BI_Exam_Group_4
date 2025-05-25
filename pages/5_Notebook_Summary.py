@@ -55,3 +55,7 @@ for title, info in notebooks.items():
     st.markdown(f"### {title}")
     st.markdown(f"[View Notebook]({info['link']})")
     st.markdown(f"*{info['summary']}*")
+
+
+st.markdown("---")
+st.caption("Built with ❤️ using Streamlit | Powered by TED Talks | Data from Kaggle")

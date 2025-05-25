@@ -64,3 +64,6 @@ st.markdown("""
 st.markdown("""
 > “The feedback helped me make my presentation more engaging and persuasive for the client.” – User Feedback
 """)
+
+st.markdown("---")
+st.caption("Built with ❤️ using Streamlit | Powered by TED Talks | Data from Kaggle")

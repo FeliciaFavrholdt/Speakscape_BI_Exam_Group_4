@@ -66,3 +66,7 @@ st.subheader("Project Annotation")
 st.markdown("""
 SpeakScape demonstrates that NLP-driven benchmarking against TED Talks can offer meaningful presentation feedback. This approach is scalable and adaptable across industries and presentation types.
 """)
+
+
+st.markdown("---")
+st.caption("Built with ❤️ using Streamlit | Powered by TED Talks | Data from Kaggle")

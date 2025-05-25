@@ -69,3 +69,9 @@ st.pyplot(fig2)
 st.subheader("Number of Talks Published Per Year (Filtered)")
 talks_per_year = filtered_df['year'].value_counts().sort_index()
 st.bar_chart(talks_per_year)
+
+
+st.markdown("Data source: TED Talk transcripts processed and analyzed by SpeakScape.")
+
+st.markdown("---")
+st.caption("Built with ❤️ using Streamlit | Powered by TED Talks | Data from Kaggle")

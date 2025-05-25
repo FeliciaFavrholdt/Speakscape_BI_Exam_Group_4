@@ -29,3 +29,7 @@ st.markdown("""
 - **What it shows:** The number of direct, action-driven sentences (e.g., “Consider this...”, “Think about...”).
 - **Why it matters:** Imperatives signal confidence and encourage audience participation or visualization, often improving emotional engagement.
 """)
+
+
+st.markdown("---")
+st.caption("Built with ❤️ using Streamlit | Powered by TED Talks | Data from Kaggle")
