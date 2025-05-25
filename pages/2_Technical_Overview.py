@@ -18,6 +18,7 @@ The following tools and libraries were used throughout the development of the Sp
 - **SpaCy** – Applied for tokenization and part-of-speech tagging  
 - **NLTK** – Used for rhetorical device detection and text parsing  
 - **JSON/CSV** – Format of source and processed TED Talk datasets
+- **TXT/PDF** - Format of input and output data on streamlit
 """)
 
 st.subheader("System Architecture")
