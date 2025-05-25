@@ -48,6 +48,7 @@ Github Link: https://github.com/FeliciaFavrholdt/Speakscape_BI_Exam_Group_4/tree
 ## Objective
 
 ## Problem Statement
+How can SpeakScape provide actionable, data-driven feedback to users by analyzing their presentation text against TED Talk benchmarks to identify impactful linguistic patterns?
 
 ## Dataset
 This project is originaly based on the 
