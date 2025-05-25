@@ -7,7 +7,7 @@ import PyPDF2
 from fpdf import FPDF
 import os
 
-st.set_page_config(page_title="Upload Your Speech", layout="wide")
+st.set_page_config(page_title="SpeakScape", layout="wide")
 
 st.title("Upload Your Speech for Feedback")
 

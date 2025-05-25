@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-st.set_page_config(page_title="TED Talk Linguistic Benchmarking", layout="wide")
+st.set_page_config(page_title="SpeakScape", layout="wide")
 
 st.title("TED Talk Linguistic Benchmarking")
 st.markdown("""

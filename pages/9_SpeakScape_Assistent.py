@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.set_page_config(page_title="SpeakScape Assistant", layout="wide")
+st.set_page_config(page_title="SpeakScape", layout="wide")
 
 st.title("SpeakScape Assistant")
 st.markdown("Ask anything about the app, TED Talk analysis, or linguistic metrics.")

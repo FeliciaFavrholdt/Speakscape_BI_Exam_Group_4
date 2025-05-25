@@ -4,8 +4,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 
 
-st.set_page_config(page_title="TED Talk Search", layout="wide")
-
+st.set_page_config(page_title="SpeakScape", layout="wide")
 
 st.title("TED Talk Search Dashboard")
 

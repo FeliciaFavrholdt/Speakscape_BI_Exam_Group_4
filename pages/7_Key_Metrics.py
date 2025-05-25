@@ -1,7 +1,7 @@
 import streamlit as st
 
 
-st.set_page_config(page_title="Key Metrics", layout="wide")
+st.set_page_config(page_title="SpeakScape", layout="wide")
 
 st.title("Key Metrics in SpeakScape")
 st.markdown("This page explains the meaning behind the key metrics and visualizations used in SpeakScape.")

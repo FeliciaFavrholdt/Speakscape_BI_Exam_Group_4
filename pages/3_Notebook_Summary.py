@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.set_page_config(page_title="SpeakScape Analysis ~ Notebook Summary", layout="wide")
+st.set_page_config(page_title="SpeakScape", layout="wide")
 
 st.title("SpeakScape Analysis Summary")
 
