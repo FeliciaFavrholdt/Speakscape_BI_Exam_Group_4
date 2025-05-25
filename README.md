@@ -54,7 +54,7 @@ This project is originaly based on the
 two datasets available on Kaggle:
 
 We have made a comprehensive analysis and therefore chosen to do a minor analysis based on the combined cleaned dataset via: 
-https://github.com/AlberteVallentin/SpeakScape/blob/main/README.md 
+https://github.com/AlberteVallentin/SpeakScape/blob/url2/data/processed/combined_dataset.csv 
 
 ## Tasks Completed
 
