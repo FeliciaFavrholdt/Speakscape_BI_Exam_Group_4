@@ -14,13 +14,17 @@ st.markdown("""
 ### TED Talk Analysis  
 - **Project Overview** – Learn the motivation, research questions, and hypotheses behind SpeakScape  
 - **Technical Overview** – See the tools, libraries, and system architecture used  
-- **SpeakScape Analysis Summary** – Explore what each notebook stage revealed  
+- **SpeakScape Notebook Summary** – Explore what each notebook stage revealed  
 - **Linguistic Visualisations** – View how sentence complexity, rhetorical devices, and tone evolve over time
+- **Analysis Models** – Understand the models used to analyze TED Talks and their impact on audience engagement
 
 ### SpeakScape App  
 - **TED Talk Search** – Find TED Talks based on topic, speaker, or tag  
 - **Upload Your Speech** – Get personalized feedback on your uploaded script  
-- **Insights** – Understand how linguistic metrics correlate with audience engagement
+- **Key Metrics** – Understand the key metrics used to evaluate presentations 
+- **Upload Your Speech** – Get personalized feedback on your uploaded script
+- **SpeakScape Assistant** – Ask questions and get real-time feedback on your presentation script
+- **Usability Evaluation** – Participate in our usability study to help improve SpeakScape - share your thoughts and experiences
 """)
 
 st.markdown("""
