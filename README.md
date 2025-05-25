@@ -12,8 +12,8 @@ SpeakScape is a data-driven platform for analyzing the linguistic patterns of TE
 - Email: [cph-av169@cphbusiness.dk](mailto:cph@av169@cphbusiness.dk)
 - GitHub: [https://github.com/AlberteVallentin](https://github.com/AlberteVallentin)
 
-#### **Fatima**
-- Email: [@cphbusiness.dk](mailto:@cphbusiness.dk)
+#### **Fatima Majid Shamcizadh**
+- Email: [cph-fs156@cphbusiness.dk](mailto:cph-fs156@cphbusiness.dk)
 - GitHub: [https://github.com/Fati01600](https://github.com/Fati01600)
 
 ## Project Overview
