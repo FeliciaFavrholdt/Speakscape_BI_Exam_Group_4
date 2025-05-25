@@ -1,7 +1,5 @@
 import streamlit as st
 import pandas as pd
-import seaborn as sns
-import matplotlib.pyplot as plt
 import plotly.express as px
 from sklearn.cluster import KMeans
 from sklearn.preprocessing import StandardScaler
@@ -28,7 +26,6 @@ df_main = load_data()
 # ---------------- Sidebar Filters ----------------
 st.sidebar.header("Filter TED Talks")
 
-# Clear filters
 if st.sidebar.button("🔁 Clear All Filters"):
     st.session_state.clear()
 
@@ -69,7 +66,7 @@ filtered_df = filtered_df[filtered_df['duration'].between(*duration_range)]
 st.subheader("Filtered Dataset Preview")
 st.dataframe(filtered_df[['title', 'speaker', 'views', 'year', 'duration', 'tags']].head(20))
 
-# ---------------- Download Filtered Data ----------------
+# ---------------- Download Button ----------------
 csv = filtered_df.to_csv(index=False)
 st.download_button(
     label="📥 Download Filtered Data as CSV",
@@ -79,39 +76,50 @@ st.download_button(
 )
 
 if not filtered_df.empty:
-    # Top Tags
+    # --- Top Tags ---
     st.subheader("Top 20 Tags in Filtered Data")
     top_tags = filtered_df['tags'].explode().value_counts().head(20)
     st.bar_chart(top_tags)
 
-    # Views trend
+    # --- Views Trend ---
     st.subheader("Average Views by Year (Trend Detection)")
     trend = filtered_df.groupby("year")["views"].mean().reset_index()
     fig_trend = px.line(trend, x="year", y="views", markers=True, title="Trend: Average Views Over Time")
     st.plotly_chart(fig_trend, use_container_width=True)
 
-    # Duration distribution
+    # --- Duration Distribution (interactive) ---
     st.subheader("Talk Duration Distribution")
-    fig1, ax1 = plt.subplots()
-    sns.histplot(filtered_df['duration'], bins=30, kde=True, ax=ax1)
-    ax1.set_xlabel("Duration (seconds)")
-    ax1.set_ylabel("Number of Talks")
-    st.pyplot(fig1)
+    fig_duration = px.histogram(
+        filtered_df,
+        x="duration",
+        nbins=30,
+        title="Histogram: Talk Duration",
+        labels={"duration": "Duration (seconds)"},
+        opacity=0.75
+    )
+    fig_duration.update_layout(bargap=0.1)
+    st.plotly_chart(fig_duration, use_container_width=True)
 
-    # Views distribution
+    # --- Views Distribution (interactive) ---
     st.subheader("Views Distribution (Log Scale)")
-    fig2, ax2 = plt.subplots()
-    sns.histplot(filtered_df['views'], bins=50, log_scale=True, ax=ax2)
-    ax2.set_xlabel("Views")
-    ax2.set_ylabel("Frequency")
-    st.pyplot(fig2)
+    fig_views = px.histogram(
+        filtered_df,
+        x="views",
+        nbins=50,
+        log_y=True,
+        title="Histogram: Views (Log Scale)",
+        labels={"views": "Views"},
+        opacity=0.75
+    )
+    fig_views.update_layout(bargap=0.1)
+    st.plotly_chart(fig_views, use_container_width=True)
 
-    # Talks per year
+    # --- Talks Per Year ---
     st.subheader("Number of Talks Per Year")
     talks_per_year = filtered_df['year'].value_counts().sort_index()
     st.bar_chart(talks_per_year)
 
-    # 2D scatter plot
+    # --- 2D Scatter Plot ---
     st.subheader("Scatter Plot: Views vs Duration")
     fig_scatter = px.scatter(
         filtered_df,
@@ -123,7 +131,7 @@ if not filtered_df.empty:
     )
     st.plotly_chart(fig_scatter, use_container_width=True)
 
-    # K-Means Clustering
+    # --- K-Means Clustering ---
     st.subheader(f"K-Means Clustering: Views vs Duration ({num_clusters} Clusters)")
     clustering_data = filtered_df[['views', 'duration']].dropna()
     scaler = StandardScaler()
