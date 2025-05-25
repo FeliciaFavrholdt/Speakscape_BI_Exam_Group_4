@@ -9,7 +9,7 @@ SpeakScape is a data-driven platform for analyzing the linguistic patterns of TE
 - GitHub: [https://github.com/FeliciaFavrholdt](https://github.com/FeliciaFavrholdt)  
 
 #### **Alberte Mary Vallentin**
-- Email: [cph@av169@cphbusiness.dk](mailto:cph@av169@cphbusiness.dk)
+- Email: [cph-av169@cphbusiness.dk](mailto:cph@av169@cphbusiness.dk)
 - GitHub: [https://github.com/AlberteVallentin](https://github.com/AlberteVallentin)
 
 #### **Fatima**
