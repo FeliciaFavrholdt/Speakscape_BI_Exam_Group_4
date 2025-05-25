@@ -29,8 +29,8 @@ Github Link: https://github.com/FeliciaFavrholdt/Speakscape_BI_Exam_Group_4/tree
 
 2. **Clone the Repository**
    ```bash
-   git clone 
-   cd 
+   git clone git@github.com:FeliciaFavrholdt/Speakscape_BI_Exam_Group_4.git
+   cd streamlit_app
    ```
 
 3. **Install Dependencies**  
