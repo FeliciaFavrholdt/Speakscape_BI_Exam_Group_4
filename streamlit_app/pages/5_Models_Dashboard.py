@@ -32,7 +32,7 @@ st.markdown(model_card_style, unsafe_allow_html=True)
 # ---------- Example Models ----------
 models = [
     {
-        "name": "TextBlob Sentiment Analyzer",
+        "name": "Some title",
         "summary": "This model analyzes the sentiment of the speech by classifying sentences as positive, negative, or neutral. It helps determine the emotional tone and progression of the talk."
     },
     {
