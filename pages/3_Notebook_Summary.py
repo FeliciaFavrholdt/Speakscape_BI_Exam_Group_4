@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.set_page_config(page_title="SpeakScape Analysis Summary", layout="wide")
+st.set_page_config(page_title="SpeakScape Analysis ~ Notebook Summary", layout="wide")
 
 st.title("SpeakScape Analysis Summary")
 
@@ -8,9 +8,6 @@ st.markdown("""
 This page summarizes the analytical stages and key findings from the SpeakScape project, documented across Jupyter notebooks.
 Each notebook addresses a specific part of the workflow—from raw data loading to linguistic feature analysis and metric modeling. We have collected and processed data from TED Talks to create a comprehensive analysis of presentation effectiveness. The notebooks are designed to be modular, allowing for easy updates and extensions as new data or methods become available. A summary of each notebook is provided below, along with links to view the full notebooks on GitHub.
 """)
-
-# Notebook Overview Table
-st.header("Notebook Overview")
 
 notebooks = {
     "01 - Data Loading & Exploration": {
