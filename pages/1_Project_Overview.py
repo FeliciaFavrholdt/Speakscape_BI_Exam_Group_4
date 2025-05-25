@@ -3,8 +3,16 @@ import streamlit as st
 
 st.set_page_config(page_title="Project Overview", layout="wide")
 
-
 st.title("Project Overview")
+st.markdown("""
+This project is designed as data analytics experimental research and development of BI implementation
+solution. It involves systematic and creative work of finding novel, uncertain, and reproducible results by
+applying modern BI and artificial intelligence (AI) technologies in a context.
+
+
+SpeakScape is an innovative tool designed to enhance public speaking by providing personalized, data-driven feedback based on TED Talk benchmarks.
+By analyzing linguistic patterns in TED Talk transcripts, SpeakScape offers actionable insights to help users improve their presentation skills, focusing on clarity, emotional impact, and audience engagement.
+""")
 
 st.header("Problem Formulation")
 st.markdown("""
