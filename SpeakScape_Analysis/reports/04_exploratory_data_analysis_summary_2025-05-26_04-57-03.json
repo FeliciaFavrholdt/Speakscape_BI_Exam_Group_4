@@ -1,0 +1,28 @@
+{
+    "description": "Performed exploratory data analysis on TED talks dataset. Analyzed relationships between linguistic features and views. Compared structural and readability features across tags and events.",
+    "records_analyzed": 4095,
+    "features_analyzed": [
+        "word_count",
+        "sentence_count",
+        "avg_word_length",
+        "avg_sentence_length",
+        "lexical_diversity",
+        "flesch_reading_ease",
+        "flesch_kincaid_grade"
+    ],
+    "comparisons_done": [
+        "views vs features (scatterplots)",
+        "word count by tag and event (boxplots)",
+        "readability by event (barplot)"
+    ],
+    "output_file": "../data/eda_features.csv",
+    "plots_generated": [
+        "../plots/feature_correlation_views.png",
+        "../plots/views_vs_features_scatterplots.png",
+        "../plots/wordcount_by_top_tags.png",
+        "../plots/wordcount_by_event_boxplot.png",
+        "../plots/readability_by_event_barplot.png"
+    ],
+    "notebook": "04_exploratory_data_analysis.ipynb",
+    "timestamp": "2025-05-26_04-57-03"
+}
