@@ -1,125 +1,99 @@
-SpeakScape – Project Analysis Summary
-Project Title
-SpeakScape – Enhancing Presentation Skills with Data-Driven Feedback
+# SpeakScape – Project Analysis Summary
 
-Team Members
-Group 4 (l25dat4bi1f):
+## Project Title
+**SpeakScape** – Enhancing Presentation Skills with Data-Driven Feedback
 
-Alberte Mary Wahlstrøm Vallentin
+## Team Members
+**Group 4 (l25dat4bi1f):**
+- Alberte Mary Wahlstrøm Vallentin  
+- Felicia Favrholdt  
+- Fatima Majid Shamcizadh  
 
-Felicia Favrholdt
+---
 
-Fatima Majid Shamcizadh
+## Problem Statement
+**How can SpeakScape provide actionable, data-driven feedback to users by analyzing their presentation text against TED Talk benchmarks to identify impactful linguistic patterns?**
 
-Problem Statement
-How can SpeakScape provide actionable, data-driven feedback to users by analyzing their presentation text against TED Talk benchmarks to identify impactful linguistic patterns?
+---
 
-Project Objective
-The project aims to develop an intelligent tool that evaluates user-uploaded presentation transcripts by comparing them to TED Talks. The focus is on extracting linguistic insights and offering feedback that enhances clarity, engagement, and communication quality.
+## Project Objective
+The objective of the project is to develop an intelligent tool that evaluates user-uploaded presentation transcripts by comparing them with successful TED Talks. The focus is on uncovering linguistic insights and providing constructive, data-driven feedback to enhance clarity, engagement, and communication effectiveness.
 
-Methodology Overview
-1. Data Preparation
-Sources Used: TED Talk transcripts from TED_2017 and TED_2020 datasets.
+---
 
-Cleaning Strategy: Removed:
+## Methodology Overview
 
-Irrelevant metadata (e.g., media URLs)
+### 1. Data Preparation
+- **Sources**: TED_2017 and TED_2020 transcript datasets.
+- **Cleaning Strategy**:
+  - Removed metadata and URLs irrelevant to textual analysis.
+  - Dropped incomplete and noisy records.
+  - Unified schemas between datasets.
+- **Final Dataset Includes**:
+  - `title`, `transcript`, `description`, `speaker`, `tags`, `views`, `recorded_date`, `event`, `duration`
 
-Noisy or incomplete entries
+### 2. Exploratory Data Analysis (EDA)
+- Explored relationships between linguistic features and viewership.
+- Created visualizations:
+  - Word count vs. views
+  - Popular tags vs. average views
+  - Temporal changes in engagement trends
 
-Redundant fields
+### 3. Feature Engineering
+- NLP-based feature extraction:
+  - Word count
+  - Readability scores (e.g., Flesch-Kincaid)
+  - Sentiment polarity
+  - Detection of rhetorical patterns
 
-Final Dataset: Cleaned and unified schema with the following essential columns:
+### 4. Predictive Modeling
+- **Goal**: Predict engagement (views) as a proxy for effectiveness.
+- **Models Applied**:
+  - Linear Regression
+  - Random Forest Regressor
+  - Support Vector Regression
+- **Performance Metrics**:
+  - R² Score
+  - Mean Absolute Error (MAE)
+  - Cross-validation for robustness
 
-title, transcript, description, speaker, tags, views, recorded_date, event, duration
+### 5. Streamlit Application
+- **Purpose**: Deliver results via a user-friendly interface.
+- **Features**:
+  - Transcript upload and feedback generation
+  - Visual metrics dashboard
+  - Engagement prediction
+  - Benchmarking against TED Talks
 
-2. Exploratory Data Analysis (EDA)
-Examined linguistic features and correlations with engagement (views).
+---
 
-Visualized patterns such as:
+## Key Insights
+- Successful presentations typically:
+  - Fall within a 10–18 minute range
+  - Maintain a high readability level
+  - Use a confident and positive tone
+  - Feature storytelling and strong openings
 
-Word count vs. views
+- Linguistic signals strongly correlate with engagement levels, supporting the data-driven approach.
 
-Topic tags vs. average viewership
+---
 
-Temporal trends in popular talks
+## Outcomes
+- Created a functional BI solution for automated presentation feedback.
+- Users can receive real-time insights on how to improve their communication.
+- The application uses real-world TED Talk data to suggest enhancements.
 
-3. Feature Engineering
-Extracted NLP-based features:
+---
 
-Word count
+## Conclusions
+SpeakScape demonstrates how Business Intelligence and Natural Language Processing can be applied to help users improve public speaking. The feedback system is grounded in TED Talk benchmarks and offers accessible, insightful analysis for non-technical users.
 
-Readability scores (e.g., Flesch-Kincaid)
+---
 
-Sentiment polarity
+## Future Work
+- Extend functionality to audio/video input with transcription.
+- Use additional engagement metrics like likes, comments, and shares.
+- Provide user-specific feedback profiles.
+- Add multi-language support for non-English presentations.
 
-Use of rhetorical devices (e.g., metaphors, repetition)
-
-4. Predictive Modeling
-Target: Engagement score (views) as a proxy for presentation effectiveness.
-
-Models Tested:
-
-Linear Regression
-
-Random Forest
-
-Support Vector Regression
-
-Evaluation Metrics:
-
-R² Score
-
-Mean Absolute Error (MAE)
-
-Cross-validation results
-
-5. Streamlit Application
-Purpose: Make feedback accessible to non-technical users.
-
-Features:
-
-Transcript upload
-
-Engagement prediction
-
-Key linguistic metrics dashboard
-
-Visual comparison to TED Talk benchmarks
-
-Key Insights
-Engaging talks often have:
-
-Moderate duration (~10–18 minutes)
-
-High readability
-
-Positive and assertive tone
-
-Talks using storytelling and strong openings show higher view counts.
-
-Clear linguistic markers correlate with success, validating the NLP approach.
-
-Outcomes
-A working prototype of a feedback system that:
-
-Accepts user transcripts
-
-Evaluates and scores linguistic quality
-
-Predicts potential engagement
-
-Suggests improvements using TED Talk data
-
-Conclusions
-SpeakScape effectively demonstrates how BI and AI can be combined to assist users in improving public speaking. By comparing transcripts with successful TED Talks, the tool empowers users to receive feedback grounded in real-world data patterns.
-
-Future Work
-Expand to video/audio input with speech-to-text
-
-Refine models with more engagement indicators (likes, shares)
-
-Personalized speaker profiles with tailored suggestions
-
-Language support beyond English
-
+---
