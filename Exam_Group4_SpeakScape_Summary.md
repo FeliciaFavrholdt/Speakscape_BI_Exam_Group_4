@@ -1,99 +1,57 @@
-# SpeakScape – Project Analysis Summary
+# SpeakScape Analysis Summary
 
-## Project Title
-**SpeakScape** – Enhancing Presentation Skills with Data-Driven Feedback
-
-## Team Members
-**Group 4 (l25dat4bi1f):**
-- Alberte Mary Wahlstrøm Vallentin  
-- Felicia Favrholdt  
-- Fatima Majid Shamcizadh  
+## 1. Problem Understanding and Setup
+- Project goal: provide data-driven, linguistically grounded feedback to speakers.
+- Hypothesis: impactful linguistic patterns in TED Talks can predict audience engagement.
+- Dataset: combined TED_2017 and TED_2020 transcripts and metadata.
+- Setup: aligned schemas, prepared Python-based data pipelines in Jupyter Notebooks.
 
 ---
 
-## Problem Statement
-**How can SpeakScape provide actionable, data-driven feedback to users by analyzing their presentation text against TED Talk benchmarks to identify impactful linguistic patterns?**
+## 2. Data Cleaning and Overview
+- Dropped non-relevant, noisy, or incomplete columns.
+- Removed records with missing or very short transcripts.
+- Retained: 2,453 talks (TED_2017) and 4,076 talks (TED_2020).
+- Standardized column names across datasets for consistency.
 
 ---
 
-## Project Objective
-The objective of the project is to develop an intelligent tool that evaluates user-uploaded presentation transcripts by comparing them with successful TED Talks. The focus is on uncovering linguistic insights and providing constructive, data-driven feedback to enhance clarity, engagement, and communication effectiveness.
+## 3. Data Loading and Preprocessing
+- Consolidated datasets into one structured DataFrame.
+- Applied NLP preprocessing: lowercasing, stopword removal, lemmatization.
+- Transformed `views` with log normalization to reduce skew.
+- Encoded `tags` with multi-hot encoding.
+- Converted `recorded_date` into datetime for temporal analysis.
 
 ---
 
-## Methodology Overview
-
-### 1. Data Preparation
-- **Sources**: TED_2017 and TED_2020 transcript datasets.
-- **Cleaning Strategy**:
-  - Removed metadata and URLs irrelevant to textual analysis.
-  - Dropped incomplete and noisy records.
-  - Unified schemas between datasets.
-- **Final Dataset Includes**:
-  - `title`, `transcript`, `description`, `speaker`, `tags`, `views`, `recorded_date`, `event`, `duration`
-
-### 2. Exploratory Data Analysis (EDA)
-- Explored relationships between linguistic features and viewership.
-- Created visualizations:
-  - Word count vs. views
-  - Popular tags vs. average views
-  - Temporal changes in engagement trends
-
-### 3. Feature Engineering
-- NLP-based feature extraction:
-  - Word count
-  - Readability scores (e.g., Flesch-Kincaid)
-  - Sentiment polarity
-  - Detection of rhetorical patterns
-
-### 4. Predictive Modeling
-- **Goal**: Predict engagement (views) as a proxy for effectiveness.
-- **Models Applied**:
-  - Linear Regression
-  - Random Forest Regressor
-  - Support Vector Regression
-- **Performance Metrics**:
-  - R² Score
-  - Mean Absolute Error (MAE)
-  - Cross-validation for robustness
-
-### 5. Streamlit Application
-- **Purpose**: Deliver results via a user-friendly interface.
-- **Features**:
-  - Transcript upload and feedback generation
-  - Visual metrics dashboard
-  - Engagement prediction
-  - Benchmarking against TED Talks
+## 4. Exploratory Data Analysis (EDA)
+- High engagement topics: "inspiration", "psychology", "technology".
+- Optimal talk durations: 10–18 minutes.
+- Positive correlation between lexical richness and view counts.
+- Visualized trends using `matplotlib` and `seaborn`.
 
 ---
 
-## Key Insights
-- Successful presentations typically:
-  - Fall within a 10–18 minute range
-  - Maintain a high readability level
-  - Use a confident and positive tone
-  - Feature storytelling and strong openings
-
-- Linguistic signals strongly correlate with engagement levels, supporting the data-driven approach.
+## 5. Feature Engineering and Model Training
+- Engineered features: `word_count`, `sentence_count`, `lexical_diversity`, sentiment scores (VADER).
+- Trained models: Linear Regression, Ridge Regression, Random Forest Regressor.
+- Best performing model: Random Forest with highest R² in cross-validation.
 
 ---
 
-## Outcomes
-- Created a functional BI solution for automated presentation feedback.
-- Users can receive real-time insights on how to improve their communication.
-- The application uses real-world TED Talk data to suggest enhancements.
+## 6. Predictive Model Development
+- Built XGBoost Regressor for enhanced prediction performance.
+- Tuned hyperparameters via GridSearchCV: tree depth, learning rate, estimators.
+- Achieved final test R² score ~0.72.
+- Developed classification model for engagement tiers: low, medium, high.
 
 ---
 
-## Conclusions
-SpeakScape demonstrates how Business Intelligence and Natural Language Processing can be applied to help users improve public speaking. The feedback system is grounded in TED Talk benchmarks and offers accessible, insightful analysis for non-technical users.
-
----
-
-## Future Work
-- Extend functionality to audio/video input with transcription.
-- Use additional engagement metrics like likes, comments, and shares.
-- Provide user-specific feedback profiles.
-- Add multi-language support for non-English presentations.
+## 7. Model Explainability and Insights
+- Used SHAP for interpretability of predictions.
+- Top features: `word_count`, sentiment polarity, tags like "inspiration", "courage".
+- Confirmed importance of linguistic and emotional factors in engagement.
+- Results inform feedback generation for presentation improvement.
 
 ---
