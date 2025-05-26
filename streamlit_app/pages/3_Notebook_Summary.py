@@ -87,11 +87,11 @@ notebooks = {
 
 for title, info in notebooks.items():
     st.markdown(f"### {title}")
-    st.markdown(f"[📘 View Notebook]({info['link']})")
+    st.markdown(f"[View Notebook]({info['link']})")
     st.markdown(info['summary'])
 
 st.markdown("---")
-st.markdown("### 📊 Overall Assessment")
+st.markdown("### Overall Assessment")
 st.markdown("""
 - **Technical Success:** Built a reliable pipeline and extracted robust linguistic features.
 - **Research Insight:** Demonstrated that text-only analysis has limited power for predicting talk success.
@@ -99,7 +99,7 @@ st.markdown("""
 - **Practical Advice:** Prioritize speaker skills, content quality, and audience understanding over linguistic optimization.
 """)
 
-st.markdown("### 📂 Datasets")
+st.markdown("### Datasets")
 st.markdown("- [TED Talks 2017 Dataset (Kaggle)](https://www.kaggle.com/datasets/rounakbanik/ted-talks/data)")
 st.markdown("- [TED Talks 2020 Dataset (Kaggle)](https://www.kaggle.com/datasets/thegupta/ted-talk/data)")
 
