@@ -1,146 +1,125 @@
-# SpeakScape
+SpeakScape – Project Analysis Summary
+Project Title
+SpeakScape – Enhancing Presentation Skills with Data-Driven Feedback
 
-SpeakScape is a data-driven platform that analyzes the linguistic patterns of TED Talks to provide actionable feedback to presenters. By applying Natural Language Processing (NLP) and Machine Learning (ML), the project correlates language features with audience engagement metrics—helping users improve the effectiveness of their presentation content.
+Team Members
+Group 4 (l25dat4bi1f):
 
----
+Alberte Mary Wahlstrøm Vallentin
 
-## Contributors
+Felicia Favrholdt
 
-- **Felicia Favrholdt**  
-  [GitHub](https://github.com/FeliciaFavrholdt) | [Email](mailto:cph-ff62@cphbusiness.dk)
+Fatima Majid Shamcizadh
 
-- **Alberte Mary Vallentin**  
-  [GitHub](https://github.com/AlberteVallentin) | [Email](mailto:cph-av169@cphbusiness.dk)
+Problem Statement
+How can SpeakScape provide actionable, data-driven feedback to users by analyzing their presentation text against TED Talk benchmarks to identify impactful linguistic patterns?
 
-- **Fatima Majid Shamcizadh**  
-  [GitHub](https://github.com/Fati01600) | [Email](mailto:cph-fs156@cphbusiness.dk)
+Project Objective
+The project aims to develop an intelligent tool that evaluates user-uploaded presentation transcripts by comparing them to TED Talks. The focus is on extracting linguistic insights and offering feedback that enhances clarity, engagement, and communication quality.
 
----
+Methodology Overview
+1. Data Preparation
+Sources Used: TED Talk transcripts from TED_2017 and TED_2020 datasets.
 
-## Project Overview
+Cleaning Strategy: Removed:
 
-SpeakScape analyzes TED Talk transcripts to extract linguistic and stylistic features such as rhetorical devices, sentence complexity, and pronoun use. These features are linked to engagement metrics like view counts to predict and enhance the effectiveness of presentations. The project results in a user-facing Streamlit application that provides personalized, actionable feedback based on user-submitted transcripts.
+Irrelevant metadata (e.g., media URLs)
 
----
+Noisy or incomplete entries
 
-## Problem Statement
+Redundant fields
 
-**How can SpeakScape provide actionable, data-driven feedback to users by analyzing their presentation text against TED Talk benchmarks to identify impactful linguistic patterns?**
+Final Dataset: Cleaned and unified schema with the following essential columns:
 
----
+title, transcript, description, speaker, tags, views, recorded_date, event, duration
 
-## Motivation
+2. Exploratory Data Analysis (EDA)
+Examined linguistic features and correlations with engagement (views).
 
-Public speaking is a critical skill in both professional and academic settings. TED Talks are widely recognized for their quality and audience impact. Our goal was to develop a tool that helps presenters improve their communication skills by learning from high-engagement linguistic patterns found in TED Talks.
+Visualized patterns such as:
 
----
+Word count vs. views
 
-## Theoretical Foundation
+Topic tags vs. average viewership
 
-Our approach is grounded in:
+Temporal trends in popular talks
 
-- **NLP**: SpaCy and NLTK for extracting syntactic and semantic features, including rhetorical devices.
-- **Statistical Modeling**: Scikit-learn for regression and classification models.
-- **Linguistic Theory**: Concepts such as ethos/pathos/logos and rhetorical structure.
-- **Engagement Metrics**: View counts, tags, and duration used as labels or proxies for measuring presentation success.
+3. Feature Engineering
+Extracted NLP-based features:
 
----
+Word count
 
-## Argumentation of Choices
+Readability scores (e.g., Flesch-Kincaid)
 
-All design choices are detailed in [`notes.md`](notes.md), including:
+Sentiment polarity
 
-- Merging TED_2017 and TED_2020 datasets for broader training data.
-- Retaining only linguistically relevant and well-populated fields (`transcript`, `description`, `views`, etc.).
-- Dropping noisy or incomplete data to improve model accuracy and reduce overfitting.
-- Mapping and cleaning operations to ensure consistent schema and quality.
+Use of rhetorical devices (e.g., metaphors, repetition)
 
----
+4. Predictive Modeling
+Target: Engagement score (views) as a proxy for presentation effectiveness.
 
-## Design
+Models Tested:
 
-### Key System Components:
+Linear Regression
 
-1. **Data Collection & Cleaning**  
-   Unified and filtered TED datasets for transcript completeness and consistency.
+Random Forest
 
-2. **Feature Extraction (NLP)**  
-   Analysis of rhetorical device use, pronoun frequency, sentence length, and syntactic variation.
+Support Vector Regression
 
-3. **Machine Learning Modeling**  
-   Predictive models to estimate engagement metrics based on linguistic features.
+Evaluation Metrics:
 
-4. **Streamlit Application**  
-   User interface that accepts presentation transcripts and provides structured feedback.
+R² Score
 
-### Project Directory Structure:
-```text
-├── combined_dataset.csv
-├── SpeakScape_Analysis/
-│   ├── Analysis.ipynb
-│   └── modeling_notebooks/
-├── streamlit_app/
-│   └── SPEAKSCAPE.py
-├── artefacts/
-│   ├── cleaned_data/
-│   ├── plots/
-│   └── models/
-├── notes.md
-├── Exam_Group4_SpeakScape_Summary.md
-├── requirements.txt
-└── README.md
+Mean Absolute Error (MAE)
 
-## Research Questions
+Cross-validation results
 
-- What linguistic features are most strongly associated with high audience engagement?
-- Can we predict the success of a presentation using only textual features?
-- How can we provide interpretable, constructive feedback on speech writing?
+5. Streamlit Application
+Purpose: Make feedback accessible to non-technical users.
 
----
+Features:
 
-## Hypothesis
+Transcript upload
 
-Talks that include rhetorical diversity, moderate sentence complexity, and emotional appeal are likely to achieve higher engagement scores—such as more views or favorable tags.
+Engagement prediction
 
----
+Key linguistic metrics dashboard
 
-## Outcomes
+Visual comparison to TED Talk benchmarks
 
-- A cleaned, combined dataset of TED Talks with engineered NLP features.
-- Machine learning models to predict engagement based on textual attributes.
-- A fully functional Streamlit app that provides users with real-time feedback on their presentation content.
+Key Insights
+Engaging talks often have:
 
----
+Moderate duration (~10–18 minutes)
 
-## Future Work
+High readability
 
-- Extend the platform to include multimodal analysis (voice, video).
-- Provide dynamic, personalized suggestions based on user proficiency.
-- Improve model precision using more granular engagement metrics (e.g., likes, watch time, audience retention).
+Positive and assertive tone
 
----
+Talks using storytelling and strong openings show higher view counts.
 
-## Implementation Instructions
+Clear linguistic markers correlate with success, validating the NLP approach.
 
-### 1. Clone the Repository
+Outcomes
+A working prototype of a feedback system that:
 
-git clone https://github.com/FeliciaFavrholdt/Speakscape_BI_Exam_Group_4.git
-cd Speakscape_BI_Exam_Group_4
+Accepts user transcripts
 
-2. Install Dependencies
+Evaluates and scores linguistic quality
 
-pip install -r requirements.txt
-3. Run the Analysis Notebook
+Predicts potential engagement
 
-cd SpeakScape_Analysis
-jupyter notebook
-Then open and execute Analysis.ipynb or other modeling notebooks to review data preparation and model training.
+Suggests improvements using TED Talk data
 
-4. Launch the Streamlit App
+Conclusions
+SpeakScape effectively demonstrates how BI and AI can be combined to assist users in improving public speaking. By comparing transcripts with successful TED Talks, the tool empowers users to receive feedback grounded in real-world data patterns.
 
-cd ../streamlit_app
-streamlit run SPEAKSCAPE.py
-vbnet
+Future Work
+Expand to video/audio input with speech-to-text
 
+Refine models with more engagement indicators (likes, shares)
 
-Let me know if you also want a section on troubleshooting common errors or instructions for deploying the app online (e.g., using Streamlit Cloud or Heroku).
+Personalized speaker profiles with tailored suggestions
+
+Language support beyond English
+
