@@ -1,0 +1,42 @@
+{
+    "description": "Scaled numerical features, defined engagement target, and prepared feature matrix for model training. Data confirmed balanced and ready for supervised classification.",
+    "records_processed": 4095,
+    "features_selected": [
+        "word_count",
+        "sentence_count",
+        "duration",
+        "avg_word_length",
+        "avg_sentence_length",
+        "lexical_diversity",
+        "flesch_reading_ease",
+        "flesch_kincaid_grade",
+        "tag_science",
+        "tag_technology",
+        "tag_culture",
+        "tag_tedx",
+        "tag_ted-ed",
+        "tag_global issues",
+        "tag_society",
+        "tag_social change",
+        "tag_design",
+        "tag_animation"
+    ],
+    "target": "high_engagement",
+    "scaling_applied": true,
+    "class_balance": {
+        "train": {
+            "0": 0.5,
+            "1": 0.5
+        },
+        "test": {
+            "0": 0.501,
+            "1": 0.499
+        }
+    },
+    "output_file": "../data/scaled_features.csv",
+    "plots_generated": [
+        "../plots/scaling_effects.png"
+    ],
+    "notebook": "05_model_training_and_evaluation.ipynb",
+    "timestamp": "2025-05-26_05-18-43"
+}
