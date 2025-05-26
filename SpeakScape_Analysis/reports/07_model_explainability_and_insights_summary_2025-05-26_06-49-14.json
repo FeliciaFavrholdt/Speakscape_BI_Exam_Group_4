@@ -1,0 +1,34 @@
+{
+    "description": "Used SHAP to interpret the trained Random Forest model. Visualized global and local feature attributions to explain engagement predictions.",
+    "shap_sample_size": 300,
+    "model_used": "random_forest_model.pkl",
+    "features_analyzed": [
+        "word_count",
+        "sentence_count",
+        "duration",
+        "avg_word_length",
+        "avg_sentence_length",
+        "lexical_diversity",
+        "flesch_reading_ease",
+        "flesch_kincaid_grade",
+        "tag_science",
+        "tag_technology",
+        "tag_culture",
+        "tag_tedx",
+        "tag_ted-ed",
+        "tag_global issues",
+        "tag_society",
+        "tag_social change",
+        "tag_design",
+        "tag_animation"
+    ],
+    "plots_generated": [
+        "../plots/shap_summary_scatter.png",
+        "../plots/shap_summary_bar.png",
+        "../plots/shap_force_individual.png"
+    ],
+    "output_file": "n/a",
+    "explainability_framework": "SHAP (TreeExplainer)",
+    "notebook": "07_model_explainability_and_insights.ipynb",
+    "timestamp": "2025-05-26_06-49-14"
+}
