@@ -138,5 +138,5 @@ SpeakScape provides data-driven insights into the linguistic effectiveness of pr
   - Integrate speech-to-text for live presentation uploads
   - Add multilingual support
   - Provide personalized feedback based on speaker profile
-
+ 
 ---
