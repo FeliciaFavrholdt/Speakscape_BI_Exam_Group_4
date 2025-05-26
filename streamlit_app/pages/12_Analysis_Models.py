@@ -1,11 +1,12 @@
-# streamlit_app/pages/visualizations.py
 import streamlit as st
 from pathlib import Path
+from PIL import Image
 
-st.title("📊 SpeakScape Visualizations")
+st.set_page_config(page_title="Visualizations", layout="wide")
+st.title("SpeakScape Visualizations")
 
-# Set the path to your plots
-plot_dir = Path("plots")
+
+plot_dir = Path("../SpeakScape_Analysis/plots")  
 
 # Define plot filenames and their descriptions
 plots = [
@@ -56,8 +57,17 @@ plots = [
     }
 ]
 
-# Display all plots with title and description
+# Display all plots
 for plot in plots:
     st.subheader(plot["title"])
     st.markdown(plot["desc"])
-    st.image(str(plot_dir / plot["file"]))
+    
+    img_path = plot_dir / plot["file"]
+    
+    if img_path.exists():
+        image = Image.open(img_path)
+        st.image(image, use_column_width=True)
+    else:
+        st.warning(f"Image not found: {img_path}")
+
+    st.markdown("---")
