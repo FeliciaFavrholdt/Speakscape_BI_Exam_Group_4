@@ -1,0 +1,23 @@
+{
+    "description": "Loaded cleaned TED dataset, applied text normalization, extracted structural and advanced linguistic features, computed readability scores, and saved preprocessed output.",
+    "records_processed": 4095,
+    "columns_added": [
+        "transcript_clean",
+        "word_count",
+        "char_count",
+        "sentence_count",
+        "avg_word_length",
+        "avg_sentence_length",
+        "lexical_diversity",
+        "flesch_reading_ease",
+        "flesch_kincaid_grade"
+    ],
+    "output_file": "../data/preprocessed_data.csv",
+    "plots_generated": [
+        "../plots/structure_distributions.png",
+        "../plots/linguistic_feature_distributions.png",
+        "../plots/linguistic_feature_scatterplots.png"
+    ],
+    "notebook": "03_data_loading_and_preprocessing.ipynb",
+    "timestamp": "2025-05-26_04-42-48"
+}

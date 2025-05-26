@@ -1,0 +1,32 @@
+{
+    "description": "Established the project scope and objectives for SpeakScape, outlined key research questions, defined the BI sprint structure, and initialized the working environment.",
+    "team_members": [
+        "Alberte Mary Wahlstr\u00f8m Vallentin",
+        "Felicia Favrholdt",
+        "Fatima Majid Shamcizadh"
+    ],
+    "sprints_defined": 4,
+    "notebooks_planned": [
+        "01_problem_statement_and_setup",
+        "02_dataset_cleaning_overview",
+        "03_data_loading_and_preprocessing",
+        "04_exploratory_data_analysis",
+        "05_model_training_and_evaluation",
+        "06_results_and_interpretation"
+    ],
+    "folders_created": [
+        "data",
+        "models",
+        "plots",
+        "reports"
+    ],
+    "tools_used": [
+        "Python 3.9",
+        "Jupyter Notebook",
+        "VS Code",
+        "GitHub",
+        "Streamlit"
+    ],
+    "notebook": "01_problem_statement_and_setup.ipynb",
+    "timestamp": "2025-05-26_03-38-27"
+}

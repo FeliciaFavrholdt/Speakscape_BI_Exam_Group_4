@@ -87,7 +87,7 @@ notebooks = {
 
 for title, info in notebooks.items():
     st.markdown(f"### {title}")
-    st.markdown(f"[View Notebook]({info['link']})")
+    st.markdown(f"[📘 View Notebook]({info['link']})")
     st.markdown(info['summary'])
 
 st.markdown("---")

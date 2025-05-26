@@ -1,0 +1,88 @@
+{
+    "description": "Merged and cleaned TED_2017 and TED_2020 datasets; removed platform-related metadata; exported a unified schema.",
+    "record_summary": {
+        "TED_2017": {
+            "original": 2549,
+            "cleaned": 2453,
+            "excluded": 96,
+            "recovered": 37,
+            "text_reduction_pct": 69.4
+        },
+        "TED_2020": {
+            "original": 4589,
+            "cleaned": 4076,
+            "excluded": 513,
+            "text_reduction_pct": 72.0
+        },
+        "final_total": 6531,
+        "combined_schema": [
+            "url",
+            "title",
+            "description",
+            "speaker",
+            "speaker_occupation",
+            "views",
+            "duration",
+            "recorded_date",
+            "event",
+            "tags",
+            "transcript"
+        ],
+        "columns_dropped": {
+            "TED_2017": [
+                "comments",
+                "languages",
+                "name",
+                "num_speaker",
+                "published_date",
+                "ratings",
+                "related_talks"
+            ],
+            "TED_2020": [
+                "talk__id",
+                "comment_count",
+                "video_type_name",
+                "number_of__speakers",
+                "speaker__id",
+                "speaker__who_he_is",
+                "speaker__why_listen",
+                "speaker__what_others_say",
+                "speaker__is_published",
+                "all_speakers_details",
+                "is_talk_featured",
+                "has_talk_citation",
+                "published_timestamp",
+                "number_of__tags",
+                "language",
+                "native_language",
+                "language_swap",
+                "is_subtitle_required",
+                "url__audio",
+                "url__video",
+                "url__photo__talk",
+                "url__photo__speaker",
+                "url__subtitled_videos",
+                "number_of__subtitled_videos",
+                "talk__download_languages",
+                "number_of__talk__download_languages",
+                "talk__more_resources",
+                "number_of__talk__more_resources",
+                "talk__recommendations__blurb",
+                "talk__recommendations",
+                "number_of__talk__recommendations",
+                "related_talks",
+                "number_of__related_talks",
+                "intro_duration",
+                "ad_duration",
+                "post_ad_duration",
+                "external__duration",
+                "external__start_time",
+                "talks__player_talks__resources__h264__00__bitrate",
+                "talks__take_action",
+                "number_of__talks__take_actions"
+            ]
+        }
+    },
+    "notebook": "02_dataset_cleaning_overview.ipynb",
+    "timestamp": "2025-05-26_04-11-30"
+}

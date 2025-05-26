@@ -1,0 +1,27 @@
+{
+    "description": "Trained and evaluated multiple classifiers (Random Forest, Logistic Regression) to predict high engagement from linguistic and structural features. Compared performance using classification metrics and confusion matrices. Saved the best model for SHAP-based explanations.",
+    "records_processed": 4095,
+    "models_trained": [
+        "RandomForestClassifier",
+        "LogisticRegression (lbfgs)",
+        "LogisticRegression (liblinear)"
+    ],
+    "best_model": "RandomForestClassifier",
+    "metrics_recorded": [
+        "accuracy",
+        "precision",
+        "recall",
+        "f1-score",
+        "confusion matrix"
+    ],
+    "target_variable": "high_engagement",
+    "model_saved": "../models/random_forest_model.pkl",
+    "plots_generated": [
+        "../plots/rf_confusion_matrix.png",
+        "../plots/logreg_confusion_matrix.png",
+        "../plots/rf_feature_importances.png",
+        "../plots/model_comparison_barplot.png"
+    ],
+    "notebook": "06_predictive_modeling.ipynb",
+    "timestamp": "2025-05-26_06-34-17"
+}
