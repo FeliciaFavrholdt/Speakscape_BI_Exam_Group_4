@@ -33,19 +33,19 @@ st.markdown(model_card_style, unsafe_allow_html=True)
 models = [
     {
         "name": "Some title",
-        "summary": "This model analyzes the sentiment of the speech by classifying sentences as positive, negative, or neutral. It helps determine the emotional tone and progression of the talk."
+        "summary": "some summary of the model. This model is used to analyze the TED Talk transcripts and provide insights into the content."
     },
     {
-        "name": "SpaCy Named Entity Recognizer",
-        "summary": "Identifies named entities (e.g., people, places, organizations) mentioned in the speech. Useful for detecting topical relevance and personal references."
+        "name": "Some title",
+        "summary": "some summary of the model. This model is used to analyze the TED Talk transcripts and provide insights into the content."
     },
     {
-        "name": "Custom Rhetorical Device Detector",
-        "summary": "A rule-based pattern matcher developed to highlight rhetorical questions, repetition, and parallel structure. These elements influence engagement and retention."
+        "name": "Some title",
+        "summary": "some summary of the model. This model is used to analyze the TED Talk transcripts and provide insights into the content."
     },
     {
-        "name": "Passive Voice Classifier",
-        "summary": "This logistic regression model detects passive sentence structures. It enables SpeakScape to provide advice on making writing more direct and engaging."
+        "name": "Some title",
+        "summary": "some summary of the model. This model is used to analyze the TED Talk transcripts and provide insights into the content."
     }
 ]
 

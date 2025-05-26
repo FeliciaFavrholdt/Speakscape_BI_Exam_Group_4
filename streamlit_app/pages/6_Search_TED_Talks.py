@@ -3,6 +3,7 @@ import pandas as pd
 import plotly.express as px
 from sklearn.cluster import KMeans
 from sklearn.preprocessing import StandardScaler
+import joblib
 
 # ---------------- Page Setup ----------------
 st.set_page_config(page_title="SpeakScape TED Talk Dashboard", layout="wide")
@@ -10,7 +11,7 @@ st.title("TED Talk Dashboard")
 
 st.markdown("""
 Explore TED Talks by year, speaker, duration, tags, and keywords.  
-This dashboard includes trend detection, tag content search, and K-Means clustering with adjustable cluster count.
+This dashboard includes trend detection, tag content search, K-Means clustering, and predictive view modeling.
 """)
 
 # ---------------- Load and Cache Data ----------------
@@ -21,12 +22,24 @@ def load_data():
     df['tags'] = df['tags'].apply(lambda x: eval(x) if isinstance(x, str) and x.startswith("[") else [])
     return df
 
+@st.cache_resource
+def load_model():
+    try:
+        return joblib.load("random_forest_model.pkl")  # saved as a tuple: (model, selected_features)
+    except Exception as e:
+        st.error(f"Failed to load model or features: {e}")
+        return None, None
+
 df_main = load_data()
+model, selected_features = load_model()
+
+if model is None:
+    st.stop()
 
 # ---------------- Sidebar Filters ----------------
 st.sidebar.header("Filter TED Talks")
 
-if st.sidebar.button("🔁 Clear All Filters"):
+if st.sidebar.button("Clear All Filters"):
     st.session_state.clear()
 
 years = sorted(df_main['year'].dropna().unique())
@@ -62,14 +75,24 @@ if keyword:
 
 filtered_df = filtered_df[filtered_df['duration'].between(*duration_range)]
 
+# ---------------- Predict Views ----------------
+if all(feature in filtered_df.columns for feature in selected_features):
+    X_pred = filtered_df[selected_features].copy()
+    filtered_df['predicted_views'] = model.predict(X_pred)
+else:
+    st.warning("Some required features for prediction are missing from the filtered dataset.")
+
 # ---------------- Display Filtered Data ----------------
 st.subheader("Filtered Dataset Preview")
-st.dataframe(filtered_df[['title', 'speaker', 'views', 'year', 'duration', 'tags']].head(20))
+columns_to_display = ['title', 'speaker', 'views', 'year', 'duration', 'tags']
+if 'predicted_views' in filtered_df.columns:
+    columns_to_display.append('predicted_views')
+st.dataframe(filtered_df[columns_to_display].head(20))
 
 # ---------------- Download Button ----------------
 csv = filtered_df.to_csv(index=False)
 st.download_button(
-    label="📥 Download Filtered Data as CSV",
+    label="Download Filtered Data as CSV",
     data=csv,
     file_name="filtered_ted_talks.csv",
     mime="text/csv"
@@ -87,7 +110,7 @@ if not filtered_df.empty:
     fig_trend = px.line(trend, x="year", y="views", markers=True, title="Trend: Average Views Over Time")
     st.plotly_chart(fig_trend, use_container_width=True)
 
-    # --- Duration Distribution (interactive) ---
+    # --- Duration Distribution ---
     st.subheader("Talk Duration Distribution")
     fig_duration = px.histogram(
         filtered_df,
@@ -100,7 +123,7 @@ if not filtered_df.empty:
     fig_duration.update_layout(bargap=0.1)
     st.plotly_chart(fig_duration, use_container_width=True)
 
-    # --- Views Distribution (interactive) ---
+    # --- Views Distribution ---
     st.subheader("Views Distribution (Log Scale)")
     fig_views = px.histogram(
         filtered_df,
@@ -137,7 +160,7 @@ if not filtered_df.empty:
     scaler = StandardScaler()
     clustering_scaled = scaler.fit_transform(clustering_data)
 
-    kmeans = KMeans(n_clusters=num_clusters, random_state=42)
+    kmeans = KMeans(n_clusters=num_clusters, random_state=42, n_init=10)
     clustering_data['cluster'] = kmeans.fit_predict(clustering_scaled)
 
     fig_cluster = px.scatter(
@@ -151,10 +174,29 @@ if not filtered_df.empty:
     )
     st.plotly_chart(fig_cluster, use_container_width=True)
 
+    # --- Actual vs Predicted Views ---
+    if 'predicted_views' in filtered_df.columns:
+        st.subheader("Actual vs Predicted Views")
+        fig_pred = px.scatter(
+            filtered_df,
+            x='views',
+            y='predicted_views',
+            hover_data=['title', 'speaker'],
+            title="Actual vs Predicted Views",
+            labels={'views': 'Actual Views', 'predicted_views': 'Predicted Views'}
+        )
+        fig_pred.add_shape(
+            type='line',
+            x0=0, y0=0,
+            x1=filtered_df['views'].max(), y1=filtered_df['views'].max(),
+            line=dict(color='red', dash='dash')
+        )
+        st.plotly_chart(fig_pred, use_container_width=True)
+
 else:
     st.warning("No results match your filters. Try adjusting the filters above.")
 
 # ---------------- Footer ----------------
 st.markdown("Data source: TED Talk transcripts processed and analyzed by SpeakScape.")
 st.markdown("---")
-st.caption("Built with ❤️ using Streamlit | Powered by TED Talks | Data from Kaggle | Stock images from Unsplash")
+st.caption("Built using Streamlit | Powered by TED Talks | Data from Kaggle | Stock images from Unsplash")
